@@ -1,6 +1,10 @@
 
 package Vista;
 
+import Controlador.UsuarioController;
+import Modelo.Usuario;
+import javax.swing.JOptionPane;
+
 
 public class login extends javax.swing.JPanel {
 
@@ -181,7 +185,18 @@ public class login extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-
+        String nombreusuario=txtCorreo.getText();
+        String contraseña= new String(txtContraseña.getPassword());
+        
+        UsuarioController controller = new UsuarioController();
+        Usuario usuario= controller.iniciarSesion(nombreusuario, contraseña);
+        
+        if(usuario != null ){
+            JOptionPane.showMessageDialog(this, "Bienvenido, "+usuario.getNombreUsuario());
+        }else{
+             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
+        }
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed

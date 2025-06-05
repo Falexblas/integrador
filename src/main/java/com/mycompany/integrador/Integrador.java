@@ -1,15 +1,18 @@
-
 package com.mycompany.integrador;
 
-import Conexion.Conexiondb;
-import java.sql.Connection;
-
+import Vista.login;
+import javax.swing.JFrame;
 
 public class Integrador {
 
     public static void main(String[] args) {
-          Connection conn = Conexiondb.getConexion();
-        // Aquí puedes usar la conexión para hacer consultas
-        Conexiondb.cerrarConexion(); // Cierra cuando termines
+        JFrame frame = new JFrame("Login");
+        login panelLogin = new login();  // tu JPanel
+        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(panelLogin);
+        frame.pack();                     
+        frame.setLocationRelativeTo(null); 
+        frame.setVisible(true);
     }
 }
