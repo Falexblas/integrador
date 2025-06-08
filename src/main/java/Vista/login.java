@@ -3,7 +3,9 @@ package Vista;
 
 import Controlador.UsuarioController;
 import Modelo.Usuario;
+import java.awt.Window;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 
 public class login extends javax.swing.JPanel {
@@ -193,6 +195,18 @@ public class login extends javax.swing.JPanel {
         
         if(usuario != null ){
             JOptionPane.showMessageDialog(this, "Bienvenido, "+usuario.getNombreUsuario());
+            
+             // Abrir la vista panel principal
+    VistaSalida panel = new VistaSalida();
+    panel.setVisible(true);
+
+    // Cerrar la ventana actual (login)
+    Window window = SwingUtilities.getWindowAncestor(this);
+if (window != null) {
+    window.dispose();
+}
+        
+           
         }else{
              JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
         }

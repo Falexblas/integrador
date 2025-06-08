@@ -106,4 +106,23 @@ public class CategoriaDAO {
         }
         return null;
     }
+    
+    public Categoria getCategoriaById(int id_categoria) {
+    Categoria categoria = null;
+    String sql = "SELECT * FROM categorias WHERE id_categoria = ?";
+    try (Connection con = Conexiondb.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setInt(1, id_categoria);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            categoria = new Categoria();
+            categoria.setId_categoria(rs.getInt("id_categoria"));
+            categoria.setNombre(rs.getString("nombre"));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return categoria;
+}
+
 }

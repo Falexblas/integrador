@@ -11,10 +11,11 @@ public interface ProductoDAO {
 
     Producto obtenerProductoPorId(int id);
 
-    void actualizarProducto(Producto producto);
+    boolean actualizarProducto(Producto producto);
 
-    void eliminarProducto(int id);
+    boolean eliminarProducto(int id);
     
-    List<Producto> obtenerProductosBajoStock();
+   public boolean actualizarStock(int idProducto, int diferencia);
+
 
 }

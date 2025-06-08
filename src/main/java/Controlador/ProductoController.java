@@ -7,6 +7,7 @@ import Modelo.Producto;
 import java.util.List;
 
 public class ProductoController {
+
     private final ProductoDAO productoDAO;
 
     public ProductoController() {
@@ -25,18 +26,16 @@ public class ProductoController {
         return productoDAO.obtenerProductoPorId(id);
     }
 
-    public void actualizarProducto(Producto producto) {
-        productoDAO.actualizarProducto(producto);
-    }
+    public boolean actualizarProducto(Producto producto) {
+    return productoDAO.actualizarProducto(producto);
+}
 
-    public void eliminarProducto(int id) {
-        productoDAO.eliminarProducto(id);
-       
-    }
-    
-    public List<Producto> listarProductosBajoStock() {
-       return productoDAO.obtenerProductosBajoStock();
-        
-    }
 
+    public boolean eliminarProducto(int id) {
+        return productoDAO.eliminarProducto(id);
+    }
+     // Método para actualizar el stock sumando la diferencia
+    public boolean actualizarStockProducto(int idProducto, int diferencia) {
+        return productoDAO.actualizarStock(idProducto, diferencia);
+    }
 }

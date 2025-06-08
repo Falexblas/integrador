@@ -22,4 +22,10 @@ public class ProveedorControlador {
     public boolean eliminarProveedor(int id) {
         return dao.eliminarProveedor(id);
     }
+    
+    public Proveedor obtenerPorId(int id) {
+        return dao.obtenerPorId(id);
+    }
 }
+
+

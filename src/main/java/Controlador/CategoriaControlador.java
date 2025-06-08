@@ -34,9 +34,14 @@ public class CategoriaControlador {
     public boolean eliminarCategoria(int id_categoria) {
         return categoriaDAO.eliminarCategoria(id_categoria);
     }
-
     // 6. Buscar categoría por nombre
     public Categoria getCategoriaByNombre(String nombre) {
         return categoriaDAO.getCategoriaByNombre(nombre);
     }
+    
+    // 7. Buscar categoría por ID
+public Categoria getCategoriaById(int id_categoria) {
+    return categoriaDAO.getCategoriaById(id_categoria);
+}
+
 }
